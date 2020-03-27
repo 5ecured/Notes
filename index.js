@@ -4,6 +4,7 @@ const cors = require('cors')
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static('build'))
 
 const requestLogger = (request, response, next) => {
     console.log('Method:', request.method)
@@ -18,7 +19,6 @@ const unknownEndpoint = (request, response) => {
 }
 
 app.use(requestLogger)
-
 
 let notes = [
     {
